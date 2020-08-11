@@ -1,9 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-// import App from "./AppFunc";
-// import App from "./AppClass";
-// import App from "./Login";
-import App from "./Register";
+import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
