@@ -4,6 +4,28 @@ class App extends Component {
   state = {
     count: 0,
     isOn: false,
+    mouseX: null,
+    mouseY: null,
+  };
+
+  componentDidMount() {
+    document.title = `You have clicked ${this.state.count} times`;
+    window.addEventListener("mousemove", this.handleMouseMove);
+  }
+
+  componentDidUpdate() {
+    document.title = `You have clicked ${this.state.count} times`;
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("mousemove", this.handleMouseMove);
+  }
+
+  handleMouseMove = (event) => {
+    this.setState({
+      mouseX: event.pageX,
+      mouseY: event.pageY,
+    });
   };
 
   incrementCount = () => {
@@ -36,6 +58,9 @@ class App extends Component {
           }}
           onClick={this.toggleLight}
         ></div>
+        <h2>Mouse Position</h2>
+        <p>X: {this.state.mouseX}</p>
+        <p>Y: {this.state.mouseY}</p>
       </>
     );
   }
